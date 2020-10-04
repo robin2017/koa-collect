@@ -1,4 +1,5 @@
 const Koa = require('koa');
+const childProcess = require('child_process')
 const config = require('./config')
 const routes = require('./routes');
 const parser = require('./lib/parser')
@@ -11,5 +12,7 @@ render(app)
 routes(app)
 static(app)
 app.listen(config.port,()=>{
-    console.log(`服务启动，打开网页：http://localhost:${config.port}`)
+    const url = `http://localhost:${config.port}`
+    console.log(`服务启动，打开网页：${url}`)
+    childProcess.exec(`open ${url}`);
 });

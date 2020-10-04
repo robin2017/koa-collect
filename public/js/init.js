@@ -1,18 +1,18 @@
-var _YS = _YS || [];
-_YS.push(['Url', 'http://127.0.0.1:12800/users?']);
-_YS.push(['_setAccount', 'YS-Test-1']);
-//_YS.push(['Action','Title']);
-//_YS.push(['Target','a','div','button']);
+var _collectConfig = _collectConfig || [];
+_collectConfig.push(['Url', 'http://localhost:12800/users?']);
+_collectConfig.push(['_setAccount', 'YS-Test-1']);
+//_collectConfig.push(['Action','Title']);
+//_collectConfig.push(['Target','a','div','button']);
 // 收集的平台 host，默认不需要配置
-_YS.push(['systemName', 'myWap']);
+_collectConfig.push(['systemName', 'myWap']);
 // 关闭收集cookie
-_YS.push(['CookieBool', 'false']);
+_collectConfig.push(['CookieBool', 'false']);
 
 // 用户自定义收集字段
-_YS.userConfig = {
-  author: '白云飘飘'
+_collectConfig.userConfig = {
+  author: 'robin'
 };
-_YS.syserror = [];
+_collectConfig.syserror = [];
 //记录客户端脚本错误  
 window.onerror = function (error) {
   try {
@@ -23,7 +23,7 @@ window.onerror = function (error) {
       }
     }
     if (msg.length > 0) {
-      _YS.syserror.push('syserror:' + msg);
+      _collectConfig.syserror.push('syserror:' + msg);
     }
     return true;
   } catch (e) { };
